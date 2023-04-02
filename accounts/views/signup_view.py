@@ -24,17 +24,25 @@ from accounts.forms import CustomAuthenticationForm
 from django.contrib.auth.forms import AuthenticationForm
 
 
+
 # Create your views here.
 class SignupView(CreateView):
     model = User
     form_class = SignUpForm
-    success_url = reverse_lazy('accounts:logout')
+    success_url = reverse_lazy('accounts:login')
     template_name = 'accounts/signup.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Signpu Student"
         return context
+
+    def form_valid(self, form):
+        if form.is_valid():
+            form_obj = form.save(commit=False)
+            form_obj.is_student = True
+            form_obj.save()
+        return super().form_valid(form)
 
 class UserLoginView(LoginView):
     form_class = CustomAuthenticationForm

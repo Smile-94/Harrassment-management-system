@@ -5,10 +5,11 @@ from django.contrib.auth import authenticate
 
 # models
 from accounts.models import User
+from accounts.models import Profile
 
 
 # Widgets
-# from accounts.widgets import CustomPictureImageFieldWidget
+from accounts.widgets import CustomPictureImageFieldWidget
 
 
 # forms
@@ -16,7 +17,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('student_id', 'password1', 'password2',)
+        fields = ('email','student_id', 'password1', 'password2',)
 
 
 class CustomAuthenticationForm(AuthenticationForm):
@@ -43,11 +44,11 @@ class CustomAuthenticationForm(AuthenticationForm):
         return self.cleaned_data
 
 
-# class ProfileForm(forms.ModelForm):
-#     photo = forms.ImageField(widget=CustomPictureImageFieldWidget)
+class ProfileForm(forms.ModelForm):
+    photo = forms.ImageField(widget=CustomPictureImageFieldWidget)
 
-#     class Meta:
-#         model = Profile
-#         exclude = ('user',)
+    class Meta:
+        model = Profile
+        exclude = ('user',)
 
 
