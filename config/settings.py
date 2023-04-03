@@ -150,7 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom Configuration and Settings
 
-LOGIN_REDIRECT_URL = '/home/'
+# LOGIN_REDIRECT_URL = '/home/'
 LOGIN_URL = '/login/'
 
 # Media files(Uploaded Files)

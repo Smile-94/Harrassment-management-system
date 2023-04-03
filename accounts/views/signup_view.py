@@ -92,8 +92,8 @@ class UserLoginView(LoginView):
 
 
 
-class UserLogout(LoginRequiredMixin, LogoutView):
+class UserLogoutView(LoginRequiredMixin, LogoutView):
     
     def get(self, request, *args, **kwargs):
         logout(request)
-        return HttpResponse("LOgin Student Successfull")
+        return HttpResponseRedirect(reverse('account:login'))

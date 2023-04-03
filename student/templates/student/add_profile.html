@@ -1,0 +1,93 @@
+{% extends 'student_base/student_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}{% endblock title %}
+
+
+
+{% block body %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title text-primary">Add/Update Profile Information</h3>
+                <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputName1 text-white">Full Name *</label>
+                    {{form.full_name |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1 text-white">Gender</label>
+                    {{form.gender |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Department *</label>
+                    {{form.department |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Contact Number *</label>
+                    {{form.student_phone |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">NID/Birth Certifacate Number*</label>
+                    {{form.national_id |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Date of Birth*</label>
+                    {{form.dob |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Father Name *</label>
+                    {{form.father_name |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Father Occupation </label>
+                    {{form.father_occupation |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Mother Name * </label>
+                    {{form.mother_name |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Mother Occupation </label>
+                    {{form.mother_occupation |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Gardian Name</label>
+                    {{form.gardian_name |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Gardian Occupation</label>
+                    {{form.gardian_occupation |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Relationship With Garidian</label>
+                    {{form.relation_with |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Father / Mother / Gardian Contact Number</label>
+                    {{form.gardian_phone |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Photo</label>
+                    {{form.photo |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Signature</label>
+                    {{form.signature |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                  <button class="btn btn-dark">Cancel</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock body %}
+    
