@@ -12,6 +12,7 @@ from accounts.models import Profile
 from accounts.widgets import CustomPictureImageFieldWidget
 
 
+
 # forms
 class SignUpForm(UserCreationForm):
 

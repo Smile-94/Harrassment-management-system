@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'harassment.apps.HarassmentConfig',
     'home.apps.HomeConfig',
     'student.apps.StudentConfig',
-    'report.apps.ReportConfig'
+    'report.apps.ReportConfig',
     # Third Party Apps and Packages
     'widget_tweaks',
     'django_filters',

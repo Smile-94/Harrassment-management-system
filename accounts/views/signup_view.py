@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 #Permission Classes
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -44,7 +45,7 @@ class SignupView(CreateView):
             form_obj.save()
         return super().form_valid(form)
 
-class UserLoginView(LoginView):
+class StudentLoginView(LoginView):
     form_class = CustomAuthenticationForm
     template_name = 'accounts/login.html'
     
@@ -53,8 +54,6 @@ class UserLoginView(LoginView):
         context["title"] = "Login Page" 
         return context
     
-    def post(self, request, *args, **kwargs):
-        return super().post(request, *args, **kwargs)
     
     def form_valid(self, form):
         student_id = form.cleaned_data.get('student_id')
@@ -63,11 +62,34 @@ class UserLoginView(LoginView):
         if user is not None:
             if user.is_student:
                 login(self.request, user)
-                return HttpResponse("Student login panel will implement soon")
+                return HttpResponseRedirect(reverse('student:student_home'))
             else:
                 return HttpResponse("You are not a student")
         else:
             return self.form_invalid(form)
+        
+class UserLoginView(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'accounts/user_login.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Login Page" 
+        return context
+    
+    def form_valid(self, form):
+        email = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(self.request, email=email, password=password)
+        if user is not None:
+            if user.is_active:
+                login(self.request, user)
+                return HttpResponse("User login panel will implement soon")
+            else:
+                return HttpResponse("You are not a valid")
+        else:
+            return self.form_invalid(form)
+
 
 
 class UserLogout(LoginRequiredMixin, LogoutView):
