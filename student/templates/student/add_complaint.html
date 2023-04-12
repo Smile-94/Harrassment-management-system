@@ -1,0 +1,61 @@
+{% extends 'student_base/student_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} {{title}} {% endblock title %}
+
+
+
+{% block body %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title text-primary">Harassemnt Complaint</h3>
+                <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputName1 text-white">Subject*</label>
+                    {{form.subject |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1 text-white">Harassment Type</label>
+                    {{form.harassment_type |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Cccurence Date*</label>
+                    {{form.occurence_date |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Accused Name *</label>
+                    {{form.accused_name |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Who is the Accused? *</label>
+                    {{form.accused_is |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Accoused Details*</label>
+                    {{form.accoused_detail |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Details about your Complaint *</label>
+                    {{form.description |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Add the Proof Documents Here * </label>
+                    {{form.proof_file |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                  <button class="btn btn-dark">Cancel</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock body %}
+    

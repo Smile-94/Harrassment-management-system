@@ -84,7 +84,7 @@ class UserLoginView(LoginView):
         if user is not None:
             if user.is_active:
                 login(self.request, user)
-                return HttpResponse("User login panel will implement soon")
+                return HttpResponseRedirect(reverse('authority:authority'))
             else:
                 return HttpResponse("You are not a valid")
         else:
@@ -96,4 +96,4 @@ class UserLogoutView(LoginRequiredMixin, LogoutView):
     
     def get(self, request, *args, **kwargs):
         logout(request)
-        return HttpResponseRedirect(reverse('account:login'))
+        return HttpResponseRedirect(reverse('accounts:login'))

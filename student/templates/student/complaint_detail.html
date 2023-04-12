@@ -1,0 +1,119 @@
+{% extends 'student_base/student_base.html' %}
+
+{% block title %} {{title}} {% endblock title %}
+
+
+{% block body %}
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row bg-ligh">
+        
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Complaint Details</h4>
+              <div class="card bg-light">
+                <div class="card-header text-dark">
+                  Student Details
+                </div>
+                <div class="card-body ">
+                    <table class="table col-lg-12">
+                        <tbody>
+                          <tr>
+                            <td>Case ID</td>
+                            <td> {{complaint.case_id}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student Name:</td>
+                            <td> {{complaint.submit_by.full_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student ID:</td>
+                            <td> {{complaint.submit_by.info_of.student_id}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gender:</td>
+                            <td> {{complaint.submit_by.gender}} </td>
+                          </tr>
+                          <tr>
+                            <td>Department:</td>
+                            <td> {{complaint.submit_by.department}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student phone:</td>
+                            <td> {{complaint.submit_by.student_phone}} </td>
+                          </tr>
+                          <tr>
+                            <td>Father Name:</td>
+                            <td> {{complaint.submit_by.father_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Mother Name:</td>
+                            <td> {{complaint.submit_by.mother_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Date of Birth:</td>
+                            <td> {{complaint.submit_by.dob}} </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+              <div class="card bg-light mt-4">
+                <div class="card-header text-dark">
+                  Accused Details
+                </div>
+                <div class="card-body ">
+                    <table class="table col-lg-12">
+                        <tbody>
+                          <tr>
+                            <td>Case ID</td>
+                            <td> {{complaint.case_id}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student Name:</td>
+                            <td> {{complaint.submit_by.full_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student ID:</td>
+                            <td> {{complaint.submit_by.info_of.student_id}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gender:</td>
+                            <td> {{complaint.submit_by.gender}} </td>
+                          </tr>
+                          <tr>
+                            <td>Department:</td>
+                            <td> {{complaint.submit_by.department}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student phone:</td>
+                            <td> {{complaint.submit_by.student_phone}} </td>
+                          </tr>
+                          <tr>
+                            <td>Father Name:</td>
+                            <td> {{complaint.submit_by.father_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Mother Name:</td>
+                            <td> {{complaint.submit_by.mother_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Date of Birth:</td>
+                            <td> {{complaint.submit_by.dob}} </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+   
+    <!-- partial -->
+</div>
+{% endblock body %}
