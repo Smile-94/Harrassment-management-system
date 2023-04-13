@@ -41,7 +41,7 @@ class StudentInfo(models.Model):
     relation_with = models.CharField(max_length=50, blank=True, null=True)
     gardian_occupation = models.CharField(max_length=50, blank=True, null=True)
     gardian_phone = models.CharField(max_length=15)
-    dob = models.DateTimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    dob = models.DateField(auto_now=False, auto_now_add=False, null=True)
     photo = models.ImageField(upload_to='media/student')
     signature = models.ImageField(upload_to='medai/signature', null=True)
     is_active = models.BooleanField(default=True)

@@ -22,6 +22,7 @@ urlpatterns += [
 urlpatterns += [
     path('complaint-harassment/', manage_harassment.HarassmentcomplaintView.as_view(), name='complaint_harassment'),
     path('pending-complaint-harassment-list/', manage_harassment.PendingComplaintListView.as_view(), name='pending_complaint_harassment'),
+    path('accpted-complaint-harassment-list/', manage_harassment.AccptedComplaintListView.as_view(), name='accpted_complaint_harassment'),
     path('complaint-harassment-details/<int:pk>/', manage_harassment.ComplaintHarassmentDetailsView.as_view(), name='complaint_harassment_detail'),
 ]
 

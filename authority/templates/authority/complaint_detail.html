@@ -1,4 +1,4 @@
-{% extends 'student_base/student_base.html' %}
+{% extends 'authority_base/authority_base.html' %}
 
 {% block title %} {{title}} {% endblock title %}
 
@@ -13,6 +13,16 @@
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Complaint Details</h4>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+                {% if not complaint.accept_status and complaint.decline_status %}
+                    
+                {% elif complaint.accept_status and not complaint.decline_status %}
+                {% else %}
+                  <a href="{% url 'authority:complaint_accept' complaint.id %}" type="button" class="btn btn-primary btn-fw mx-2">Accept Complaint</a>
+                  <a href="{% url 'authority:complaint_decline' complaint.id %}" type="button" class="btn btn-danger btn-fw">Decline Complaint</a>
+
+                {% endif %}
+              </div>
               <div class="card bg-light">
                 <div class="card-header text-dark">
                   Student Details
@@ -85,7 +95,7 @@
                           {% elif complaint.decline_status %}
                             <tr>
                               <td>Status:</td>
-                              <td> {{complaint.submit_by.gender}} </td>
+                              <td> Rejected </td>
                             </tr>
                           {% else %}
                             <tr>

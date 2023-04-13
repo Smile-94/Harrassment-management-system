@@ -47,6 +47,20 @@ class PendingComplaintListView(LoginRequiredMixin, StudentPassesTestMixin, ListV
         context = super().get_context_data(**kwargs)
         context["title"] = "Pending Complaint List"
         return context
+    
+class AccptedComplaintListView(LoginRequiredMixin, StudentPassesTestMixin, ListView):
+    queryset = Harassment.objects.filter(accept_status=True,decline_status=False).order_by('-id')
+    context_object_name = 'complaints'
+    template_name = 'student/accpted_complaint.html'
+
+    def get_queryset(self):
+        return self.queryset.filter(submit_by= self.request.user.student_info)
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Pending Complaint List"
+        return context
 
 
 class ComplaintHarassmentDetailsView(LoginRequiredMixin, StudentPassesTestMixin, DetailView):

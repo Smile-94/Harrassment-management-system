@@ -1,0 +1,45 @@
+{% extends 'authority_base/authority_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} {{title}} {% endblock title %}
+
+
+
+{% block body %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title text-primary">Accept Complaint</h3>
+                <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputName1 text-white">Hearing Date *</label>
+                    {{form.hearing_date |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1 text-white">Hearing Time *</label>
+                    {{form.hearing_time |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Hearing Room Number *</label>
+                    {{form.hearing_room |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Replay *</label>
+                    {{form.message |add_class:"form-control text-dark bg-light"}}
+                  </div>
+                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                  <a class="btn btn-dark">back</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock body %}
+    
