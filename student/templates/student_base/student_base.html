@@ -73,7 +73,7 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'student:add_profile' request.user.student_info.id %}">Add/Update Profile</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">View Profile</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'student:my_profile' request.user.student_info.id %}">View Profile</a></li>
               </ul>
             </div>
           </li>
@@ -90,19 +90,11 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'student:complaint_harassment' %}"> Submit Complaint </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'student:pending_complaint_harassment' %}"> Pending Complaint </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'student:accpted-complaint-harassment-list' %}"> Accpted Complaint </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'student:pending_complaint_harassment' %}"> Declined Complaint </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'student:accpted_complaint_harassment' %}"> Accpted Complaint </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'student:declined_complaint_harassment' %}"> Declined Complaint </a></li>
                 
               </ul>
             </div>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Documentation</span>
-            </a>
           </li>
         </ul>
       </nav>
@@ -231,10 +223,10 @@
                         <i class="mdi mdi-settings text-danger"></i>
                       </div>
                     </div>
-                    <div class="preview-item-content">
+                    {% comment %} <div class="preview-item-content">
                       <p class="preview-subject mb-1">Settings</p>
                       <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                    </div>
+                    </div> {% endcomment %}
                   </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
@@ -268,7 +260,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  {% comment %} <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-settings text-success"></i>
@@ -277,7 +269,7 @@
                     <div class="preview-item-content">
                       <p class="preview-subject mb-1">Settings</p>
                     </div>
-                  </a>
+                  </a> {% endcomment %}
                   <div class="dropdown-divider"></div>
                   <a href="{% url 'accounts:logout' %}" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">

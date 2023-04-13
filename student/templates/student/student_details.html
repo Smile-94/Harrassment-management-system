@@ -1,0 +1,95 @@
+{% extends 'student_base/student_base.html' %}
+
+{% block title %} {{title}} {% endblock title %}
+
+
+{% block body %}
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row bg-ligh">
+        
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">My Profile</h4>
+              <div class="card bg-light">
+                <div class="card-header text-dark">
+                  Student Details
+                </div>
+                <div class="card-body ">
+                    <div class="card" style="width: 18rem;">
+                        <img src=" {{student.photo.url}} " class="card-img-top" alt="..." height="250" width="120">
+                      </div>
+                    <table class="table col-lg-12">
+                        <tbody>
+                          <tr>
+                            <td>Student Name:</td>
+                            <td> {{student.full_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student ID:</td>
+                            <td> {{student.info_of.student_id}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gender:</td>
+                            <td> {{student.gender}} </td>
+                          </tr>
+                          <tr>
+                            <td>Department:</td>
+                            <td> {{student.department}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student phone:</td>
+                            <td> {{student.student_phone}} </td>
+                          </tr>
+                          <tr>
+                            <td>Student NID:</td>
+                            <td> {{student.national_id}} </td>
+                          </tr>
+                          <tr>
+                            <td>Father Name:</td>
+                            <td> {{student.father_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Father Occupation:</td>
+                            <td> {{student.father_occupation}} </td>
+                          </tr>
+                          <tr>
+                            <td>Mother Name:</td>
+                            <td> {{student.mother_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Mother Occupation:</td>
+                            <td> {{student.mother_occupation}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gardian Name:</td>
+                            <td> {{student.gardian_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Relation With:</td>
+                            <td> {{student.relation_with}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gardian Contact No:</td>
+                            <td> {{student.gardian_phone}} </td>
+                          </tr>
+                          <tr>
+                            <td>Date of Birth:</td>
+                            <td> {{student.dob}} </td>
+                          </tr> 
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+   
+    <!-- partial -->
+</div>
+{% endblock body %}

@@ -17,6 +17,15 @@
                 <div class="card-header text-dark">
                   Student Details
                 </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  {% if not complaint.accept_status and not complaint.decline_status  %}
+                    <a href="{% url 'student:update_complaint_harassment' complaint.id %}" type="button" class="btn btn-lg btn-primary btn-fw mx-4">Edit</a>
+                  {% endif %}
+                  <button type="button" class="btn btn-lg btn-danger btn-fw ">
+                    <a href="{{ complaint.proof_file.url }}" target="_blank" rel="noopener noreferrer" class="text-white">Proof File</a>
+                </button>
+                </div>
                 <div class="card-body ">
                     <table class="table col-lg-12">
                         <tbody>
@@ -85,7 +94,7 @@
                           {% elif complaint.decline_status %}
                             <tr>
                               <td>Status:</td>
-                              <td> {{complaint.submit_by.gender}} </td>
+                              <td> Rejected </td>
                             </tr>
                           {% else %}
                             <tr>
@@ -96,6 +105,16 @@
                             
                         </tbody>
                       </table>
+                      
+                      {% if complaint.accept_status or complaint.decline_status %}
+                      <div class="card">
+                        <h3>Replay Message</h3>
+                        <div class="card-body bg-light text-dark">
+                          {{complaint.message}}
+                        </div>
+                      </div>
+                      {% endif %}
+                        
                 </div>
               </div>
 

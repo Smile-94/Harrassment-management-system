@@ -16,13 +16,16 @@ urlpatterns = [
 # Manage Profile
 urlpatterns += [
     path('add-profile/<int:pk>/', manage_profile.AddStudentInfoView.as_view(), name='add_profile' ),
+    path('my-profile/<int:pk>/', manage_profile.MyProfileDetailsView.as_view(), name='my_profile' ),
 ]
 
 # Manage Harassment
 urlpatterns += [
     path('complaint-harassment/', manage_harassment.HarassmentcomplaintView.as_view(), name='complaint_harassment'),
+    path('update-complaint-harassment/<int:pk>/', manage_harassment.UpdateHrassmentComplaintView.as_view(), name='update_complaint_harassment'),
     path('pending-complaint-harassment-list/', manage_harassment.PendingComplaintListView.as_view(), name='pending_complaint_harassment'),
     path('accpted-complaint-harassment-list/', manage_harassment.AccptedComplaintListView.as_view(), name='accpted_complaint_harassment'),
+    path('declined-complaint-harassment-list/', manage_harassment.DeclinedComplaintListView.as_view(), name='declined_complaint_harassment'),
     path('complaint-harassment-details/<int:pk>/', manage_harassment.ComplaintHarassmentDetailsView.as_view(), name='complaint_harassment_detail'),
 ]
 

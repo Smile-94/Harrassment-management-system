@@ -2,8 +2,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 # Generic Class
-from django.views.generic import CreateView
 from django.views.generic import UpdateView
+from django.views.generic import DetailView
 
 # Permission Classes
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -32,4 +32,17 @@ class AddStudentInfoView(LoginRequiredMixin, StudentPassesTestMixin, UpdateView)
     def form_invalid(self, form):
         messages.error(self.request, "Profile not updated try again!")
         return super().form_invalid(form)
+
+
+class MyProfileDetailsView(LoginRequiredMixin, StudentPassesTestMixin, DetailView):
+    
+    model = StudentInfo
+    context_object_name = 'student'
+    template_name = 'student/student_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "MY profile"
+        return context
+    
     
