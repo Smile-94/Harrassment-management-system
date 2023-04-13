@@ -14,13 +14,16 @@
             <div class="card-body">
               <h4 class="card-title">Complaint Details</h4>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
-                  <a href="#" type="button" class="btn btn-primary btn-fw mx-2">Back</a>
+                  <a href="{% url 'authority:student_list' %}" type="button" class="btn btn-primary btn-fw mx-2">Back</a>
               </div>
               <div class="card bg-light">
                 <div class="card-header text-dark">
                   Student Details
                 </div>
                 <div class="card-body ">
+                  <div class="card" style="width: 18rem;">
+                    <img src=" {{student.student_info.photo.url}} " class="card-img-top" alt="..." height="250" width="120">
+                  </div>
                     <table class="table col-lg-12">
                         <tbody>
                           <tr>
@@ -44,18 +47,42 @@
                             <td> {{student.student_info.student_phone}} </td>
                           </tr>
                           <tr>
+                            <td>Student NID:</td>
+                            <td> {{student.student_info.national_id}} </td>
+                          </tr>
+                          <tr>
                             <td>Father Name:</td>
                             <td> {{student.student_info.father_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Father Occupation:</td>
+                            <td> {{student.student_info.father_occupation}} </td>
                           </tr>
                           <tr>
                             <td>Mother Name:</td>
                             <td> {{student.student_info.mother_name}} </td>
                           </tr>
                           <tr>
+                            <td>Mother Occupation:</td>
+                            <td> {{student.student_info.mother_occupation}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gardian Name:</td>
+                            <td> {{student.student_info.gardian_name}} </td>
+                          </tr>
+                          <tr>
+                            <td>Relation With:</td>
+                            <td> {{student.student_info.relation_with}} </td>
+                          </tr>
+                          <tr>
+                            <td>Gardian Contact No:</td>
+                            <td> {{student.student_info.gardian_phone}} </td>
+                          </tr>
+                          <tr>
                             <td>Date of Birth:</td>
                             <td> {{student.student_info.dob}} </td>
                           </tr> 
-                        </tbody>
+                        </tbody> 
                       </table>
                 </div>
               </div>

@@ -64,6 +64,7 @@ class Harassment(models.Model):
     hearing_time = models.TimeField(auto_now=False, auto_now_add=False, null=True)
     hearing_room = models.CharField(max_length=50)
     proof_file = models.FileField(upload_to='Proof_file', max_length=100)
+    is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

@@ -20,8 +20,10 @@
                 {% else %}
                   <a href="{% url 'authority:complaint_accept' complaint.id %}" type="button" class="btn btn-primary btn-fw mx-2">Accept Complaint</a>
                   <a href="{% url 'authority:complaint_decline' complaint.id %}" type="button" class="btn btn-danger btn-fw">Decline Complaint</a>
-
                 {% endif %}
+                <button type="button" class="btn btn-danger btn-fw mx-4 ">
+                  <a href="{{ complaint.proof_file.url }}" target="_blank" rel="noopener noreferrer" class="text-white">Proof File</a>
+                </button>
               </div>
               <div class="card bg-light">
                 <div class="card-header text-dark">
