@@ -20,7 +20,7 @@
                         <tr>
                         <th>Case ID</th>
                         <th>Harassment Type</th>
-                        <th>Occurence Date</th>
+                        <th>Submit By</th>
                         <th>Accused Name</th>
                         <th>Accused By</th>
                         <th>Status</th>
@@ -32,7 +32,7 @@
                             <tr class="text-white">
                                 <td> {{complaint.case_id}} </td>
                                 <td> {{complaint.harassment_type}} </td>
-                                <td> {{complaint.occurence_date}} </td>
+                                <td> {{complaint.submit_by.full_name}} </td>
                                 <td> {{complaint.accused_name}} </td>
                                 <td> {{complaint.accused_is}} </td>
                                 <td><label class="badge badge-danger">Pending</label></td>
